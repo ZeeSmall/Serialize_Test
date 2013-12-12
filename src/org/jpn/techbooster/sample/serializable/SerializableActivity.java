@@ -1,12 +1,5 @@
 package org.jpn.techbooster.sample.serializable;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
-import org.jpn.techbooster.sample.serializable.R;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +7,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class SerializableActivity extends Activity implements OnClickListener {
 	static final private String TAG = "Serializable";
@@ -51,6 +49,7 @@ public class SerializableActivity extends Activity implements OnClickListener {
 				oos.writeObject(data);
 				oos.close();
 			} catch (Exception e) {
+				e.printStackTrace();
 				Log.d(TAG, "Error");
 			}
 		} else if (buttonLoad_ == view) {
@@ -62,6 +61,7 @@ public class SerializableActivity extends Activity implements OnClickListener {
 		        editTextString_.setText(data.getString());
 		        editTextNumber_.setText(Integer.toString(data.getNumber()));
 			} catch (Exception e) {
+				e.printStackTrace();
 				Log.d(TAG, "Error");
 			}
 		}
