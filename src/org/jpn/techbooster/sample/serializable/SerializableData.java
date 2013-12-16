@@ -1,16 +1,16 @@
 package org.jpn.techbooster.sample.serializable;
 
 import java.io.Serializable;
-import java.util.HashMap;
+import java.nio.ByteBuffer;
 
 public class SerializableData implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String string_;
 	private int number_;
-	private HashMap<Integer, String> map = new HashMap<Integer, String>();
+	private ByteBuffer bb;
 
 	public SerializableData() {
-		map.put(1, "get");
+		bb = ByteBuffer.allocate(16);
 	}
 
 	public String getString() {
