@@ -1,17 +1,16 @@
 package org.jpn.techbooster.sample.serializable;
 
-import android.graphics.Bitmap;
-
 import java.io.Serializable;
+import java.util.HashMap;
 
 public class SerializableData implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String string_;
 	private int number_;
-	private Bitmap bmp;
+	private HashMap<Integer, String> map = new HashMap<Integer, String>();
 
-	public SerializableData(Bitmap bmp) {
-		this.bmp = bmp;
+	public SerializableData() {
+		map.put(1, "get");
 	}
 
 	public String getString() {

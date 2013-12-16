@@ -1,8 +1,6 @@
 package org.jpn.techbooster.sample.serializable;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,14 +19,12 @@ public class SerializableActivity extends Activity implements OnClickListener {
 	private Button buttonLoad_;
 	private EditText editTextString_;
 	private EditText editTextNumber_;
-	private Bitmap bmp;
-	
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-		bmp = BitmapFactory.decodeResource(getResources(), R.drawable.icon);
         buttonSave_ = (Button)findViewById(R.id.ButtonSave);
         buttonSave_.setOnClickListener(this);
         buttonLoad_ = (Button)findViewById(R.id.ButtonLoad);
@@ -40,8 +36,7 @@ public class SerializableActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View view) {
 		if (buttonSave_ == view) {
-			SerializableData data = new SerializableData(bmp);
-//			SerializableData data = new SerializableData();
+			SerializableData data = new SerializableData();
 			data.setString(editTextString_.getText().toString());
 			if (0 != editTextNumber_.length()) {
 				data.setNumber(Integer.parseInt(editTextNumber_.getText().toString()));
